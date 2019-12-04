@@ -1,0 +1,280 @@
+body, html, .owo, .page-box {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.owo-animation {
+  overflow: hidden;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.owo-animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+.owo-animation-forward {
+  z-index: 99;
+}
+
+
+a {
+  color: #333;
+}
+
+a:link, a:visited {
+  text-decoration: none;
+}
+img {
+  border: none;
+}
+
+/* 清除浮动 */
+.clear:after {
+  content: "";
+  height: 0;
+  line-height: 0;
+  display: block;
+  visibility: hidden;
+  clear: both;
+  zoom: 1;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+.one .one-box {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.one .so-4 {
+  position: absolute;
+  left: 68px;
+  top: 384px;
+  z-index: 2;
+}
+
+.one .so-3 {
+  position: absolute;
+  left: 190px;
+  top: 457px;
+  z-index: 3;
+  width: 56px;
+  height: 553px;
+  font-size: 36px;
+  line-height: 40px;
+  color: #ffffff;
+  text-align: center;
+  -webkit-box-align: center;
+  align-items: center;
+}
+
+.one .so-2 {
+  position: absolute;
+  left: 272px;
+  top: 1136px;
+  z-index: 4;
+  cursor: pointer;
+  -webkit-animation: fade 1.5s infinite;
+          animation: fade 1.5s infinite;
+}
+
+@-webkit-keyframes fade {
+  from {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.4;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.4;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+.two .two-box {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.two .so-1 {
+  position: absolute;
+  left: 17px;
+  top: 379px;
+  z-index: 5;
+}
+
+.two .so-2 {
+  position: absolute;
+  left: 85px;
+  top: 1138px;
+  z-index: 4;
+}
+
+.two .so-3 {
+  position: absolute;
+  left: 271px;
+  top: 1138px;
+  z-index: 3;
+}
+
+.two .so-4 {
+  position: absolute;
+  left: 456px;
+  top: 1137px;
+  z-index: 2;
+}
+
+.two .text-box {
+  position: absolute;
+  z-index: 9;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 495px;
+  width: 590px;
+  height: 490px;
+  overflow: auto;
+}
+
+.two .text-box li {
+  line-height: 40px;
+  font-weight: normal;
+  font-family: "Microsoft YaHei";
+  background-image: url("../resource/spot.png");
+  background-repeat: no-repeat;
+  background-position: 10px 11px;
+  padding-left: 40px;
+  font-size: 30px;
+  font-weight: bold;
+  margin-top: 12px;
+  color: black;
+}
+
+.two .text-box p {
+  background-image: url("../resource/spot-2.png");
+  background-repeat: no-repeat;
+  background-position: 0 17px;
+  padding-left: 22px;
+  font-size: 26px;
+  height: 0;
+  overflow: hidden;
+  font-weight: normal;
+}
+
+.two .text-box a {
+  color: black;
+}
+
+.two .text-box h2 {
+  cursor: pointer;
+  padding-bottom: 5px;
+  font-size: 30px;
+}
+
+.two .text-box a,
+.two .text-box p,
+.two .text-box h2 {
+  display: block;
+}
+
+.two .text-box .active p {
+  height: auto;
+}
+
+.two .user-edit {
+  display: none;
+}
+
+.two .forbidden {
+  -webkit-filter: gray;
+          filter: gray;
+  -webkit-filter: grayscale(50%);
+          filter: grayscale(50%);
+  pointer-events: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.two .page {
+  position: absolute;
+  top: 440px;
+  left: 620px;
+  z-index: 9;
+  font-size: 30px;
+  color: #999999;
+}
+
+/* 页面切换动画 */
+.o-page-scaleDownCenter {
+	-webkit-animation: scaleDownCenter .4s ease-in both;
+	-moz-animation: scaleDownCenter .4s ease-in both;
+	animation: scaleDownCenter .4s ease-in both;
+}
+
+@-webkit-keyframes scaleDownCenter {
+	to { opacity: 0; -webkit-transform: scale(.7); }
+}
+@-moz-keyframes scaleDownCenter {
+	to { opacity: 0; -moz-transform: scale(.7); }
+}
+@keyframes scaleDownCenter {
+	to { opacity: 0; transform: scale(.7); }
+}
+.o-page-scaleUpCenter {
+	-webkit-animation: scaleUpCenter .4s ease-out both;
+	-moz-animation: scaleUpCenter .4s ease-out both;
+	animation: scaleUpCenter .4s ease-out both;
+}
+@-webkit-keyframes scaleUpCenter {
+	from { opacity: 0; -webkit-transform: scale(.7); }
+}
+@-moz-keyframes scaleUpCenter {
+	from { opacity: 0; -moz-transform: scale(.7); }
+}
+@keyframes scaleUpCenter {
+	from { opacity: 0; transform: scale(.7); }
+}
+.o-page-delay400 {
+	-webkit-animation-delay: .4s !important;
+	-moz-animation-delay: .4s !important;
+	animation-delay: .4s !important;
+}
+
+a:hover {
+}
+
+

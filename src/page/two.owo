@@ -1,0 +1,207 @@
+<template lang="pug">
+.two
+  .two-box
+    img.soulless.so-1.item-1(width="713", height="716", src="@|two-1.png|")
+    img.soulless.so-2.item-2#previous(width="167", height="54", src="@|two-2.png|", :tap="previous")
+    img.soulless.so-3.item-3#last(width="167", height="54", src="@|two-3.png|", :tap="last")
+    img.soulless.so-4.item-4(width="205", height="55", src="@|two-4.png|", :tap="owo.go('one', 'scaleDownCenter', 'scaleUpCenter&&delay400', 'scaleDownCenter', 'scaleUpCenter&delay400')")
+    .page#page 1/9
+    ul.text-box#textBox
+    ul.user-edit#userEdit
+      li
+        h2 如何理解坚持党中央集中统一领导？
+      li
+        h2 如何提高制度执行力，把我国制度优势更好转化为国家治理效能？
+      li
+        h2 为什么要加强制度自信宣传教育？
+        p
+          a(href="http://www.people.com.cn/") 为什么要加强制度自信宣传教育？
+        p
+          a(href="http://www.people.com.cn/") 为什么要加强制度自信宣传教育？
+        p
+          a(href="http://www.people.com.cn/") 为什么要加强制度自信宣传教育？
+        p
+          a(href="http://www.people.com.cn/") 为什么要加强制度自信宣传教育？
+        p
+          a(href="http://www.people.com.cn/") 为什么要加强制度自信宣传教育？
+      li
+        h2 如何建设高素质专业化干部队伍？
+        p
+          a(href="http://www.people.com.cn/") 如何理解“坚持党的领导的核心要义”？
+      li
+        h2 如何理解坚持党中央集中统一领导？
+      li
+        h2 如何提高制度执行力，把我国制度优势更好转化为国家治理效能？
+      li
+        h2 为什么要加强制度自信宣传教育？
+        p
+          a(href="http://www.people.com.cn/") 为什么要加强制度自信宣传教育？
+        p
+          a(href="http://www.people.com.cn/") 为什么要加强制度自信宣传教育？
+        p
+          a(href="http://www.people.com.cn/") 为什么要加强制度自信宣传教育？
+      li
+        h2 如何建设高素质专业化干部队伍？
+        p
+          a(href="http://www.people.com.cn/") 如何理解“坚持党的领导的核心要义”？
+</template>
+
+<script>
+  module.exports = {
+    data: {
+      activeIndex: 0,
+      pageNum: 0,
+      pageList: []
+    },
+    created: function () {
+      const textList = this.$dom.userEdit.children
+      let tempIndex = 0
+      this.data.pageList[this.data.pageNum] = []
+      for (let ind = 0; ind < textList.length; ind++) {
+        const item = textList[ind]
+        tempIndex++
+        if (tempIndex > 5) {
+          tempIndex = 0
+          this.data.pageNum++
+          this.data.pageList[this.data.pageNum] = []
+        }
+        item.getElementsByTagName('h2')[0].onclick = function () {
+          const dom = this.parentNode || this.parentElement
+          if (dom.classList.contains('active')) {
+            dom.classList.remove('active')
+          } else {
+            dom.classList.add('active')
+          }
+        }
+        this.data.pageList[this.data.pageNum].push(item)
+        
+      }
+      this.setActive(0)
+      console.log(this.data.pageList)
+    },
+    setActive: function (index) {
+      if (index === 0) {
+        this.$dom.previous.classList.add('forbidden')
+      } else {
+        this.$dom.previous.classList.remove('forbidden')
+      }
+      // console.log(this.data.pageList.length, index)
+      if (this.data.pageList.length <= index + 1) {
+        this.$dom.last.classList.add('forbidden')
+      } else {
+        this.$dom.last.classList.remove('forbidden')
+      }
+      this.$dom.page.innerHTML = (index + 1) + '/' + (this.data.pageNum + 1)
+      this.$dom.textBox.innerHTML = ''
+      this.data.pageList[index].forEach(element => {
+        this.$dom.textBox.append(element)
+      })
+    },
+    last: function () {
+      this.data.activeIndex++
+      this.setActive(this.data.activeIndex)
+    },
+    previous: function () {
+      this.data.activeIndex--
+      this.setActive(this.data.activeIndex)
+    },
+  }
+</script>
+
+
+<style lang="less">
+.two-box {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.so-1 {
+  position: absolute;
+  left: 17px;
+  top: 379px;
+  z-index: 5;
+}
+.so-2 {
+  position: absolute;
+  left: 85px;
+  top: 1138px;
+  z-index: 4;
+}
+.so-3 {
+  position: absolute;
+  left: 271px;
+  top: 1138px;
+  z-index: 3;
+}
+.so-4 {
+  position: absolute;
+  left: 456px;
+  top: 1137px;
+  z-index: 2;
+}
+.text-box {
+  position: absolute;
+  z-index: 9;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 495px;
+  width: 590px;
+  height: 490px;
+  overflow: auto;
+  li {
+    line-height: 40px;
+    font-weight: normal;
+    font-family: "Microsoft YaHei";
+    background-image: url("@|spot.png|");
+    background-repeat: no-repeat;
+    background-position: 10px 11px;
+    padding-left: 40px;
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 12px;
+    color: black;
+  }
+  p {
+    background-image: url("@|spot-2.png|");
+    background-repeat: no-repeat;
+    background-position: 0 17px;
+    padding-left: 22px;
+    font-size: 26px;
+    height: 0;
+    overflow: hidden;
+    font-weight: normal;
+  }
+  a {
+    color: black;
+  }
+  h2 {
+    cursor: pointer;
+    padding-bottom: 5px;
+    font-size: 30px;
+  }
+  a, p, h2 {
+    display: block;
+  }
+  .active p {
+    height: auto;
+  }
+}
+.user-edit {
+  display: none;
+}
+.forbidden {
+  filter: gray;
+  filter: grayscale(50%);
+  pointer-events: none;
+  user-select: none;
+}
+.page {
+  position: absolute;
+  top: 440px;
+  left: 620px;
+  z-index: 9;
+  font-size: 30px;
+  color: #999999;
+}
+</style>

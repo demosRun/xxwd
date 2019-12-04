@@ -1,0 +1,66 @@
+<template lang="pug">
+.one
+  .one-box
+    img.soulless.so-4.item-4(width="585", height="700", src="@|one-4.png|")
+    p.soulless.so-3.item-3 党的十九届四中全会精神
+    img.soulless.so-2.item-2(width="202", height="72", src="@|one-2.png|", :tap="owo.go('two', 'scaleDownCenter', 'scaleUpCenter&&delay400', 'scaleDownCenter', 'scaleUpCenter&delay400')")
+
+</template>
+
+<script>
+  module.exports = {
+    created: function () {
+
+    }
+  }
+</script>
+
+
+<style lang="less">
+.one-box {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.so-4 {
+  position: absolute;
+  left: 68px;
+  top: 384px;
+  z-index: 2;
+}
+.so-3 {
+  position: absolute;
+  left: 190px;
+  top: 457px;
+  z-index: 3;
+  width: 56px;
+  height: 553px;
+  font-size: 36px;
+  line-height: 40px;
+  color: #ffffff;
+  text-align: center;
+  -webkit-box-align: center;
+  align-items: center;
+}
+.so-2 {
+  position: absolute;
+  left: 272px;
+  top: 1136px;
+  z-index: 4;
+  cursor: pointer;
+  animation: fade 1.5s infinite;
+}
+@keyframes fade {
+  from {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.4;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+</style>
